@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 public class Theater {
     public static final int ROW = 10;
     public static final int COLUMN = 20;
-    public static final int buffer = 3;
+    public static final int BUFFER = 3;
     public static final int MIDROW = ROW/2;
     public static final int MIDCOL = COLUMN/2;
     private int curRow;
@@ -23,14 +23,14 @@ public class Theater {
         curCol = MIDCOL;
         arrangements = new LinkedHashMap<>();
         //consider safety buffer
-        seatsAvailable = ROW * COLUMN - buffer;
+        seatsAvailable = ROW * COLUMN - BUFFER;
         enoughSeats = true;
     }
 
     public void arrange(LinkedHashMap<String, Integer> reservations) {
         for (String key : reservations.keySet()) {
             int seatsNeed = reservations.get(key);
-            if (seatsAvailable <= seatsNeed) {
+            if (seatsAvailable < seatsNeed) {
                 enoughSeats = false;
                 break;
             }
@@ -99,5 +99,28 @@ public class Theater {
 
     public LinkedHashMap<String, ArrayList<String>> getArrangements() {
         return this.arrangements;
+    }
+
+    public String getInformation() {
+        if (enoughSeats) {
+            return "The theater has enough seats.";
+        }
+        else {
+            return "The rest reservations cannot be made because of the insufficient seats.";
+        }
+    }
+
+    //methods used for test
+    public int getSeatsAvailable() {
+        return this.seatsAvailable;
+    }
+    public boolean getEnoughSeats() {
+        return this.enoughSeats;
+    }
+    public int getCurRow() {
+        return this.curRow;
+    }
+    public int getCurCol() {
+        return this.curCol;
     }
 }

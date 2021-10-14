@@ -10,7 +10,7 @@ public class Main {
         Theater theater = new Theater();
         theater.arrange(fileInput.reservations);
         //file output, the seats arrangement
-        FileOutput fileOutput = new FileOutput(theater.getSeats(), theater.getArrangements());
+        FileOutput fileOutput = new FileOutput(theater.getSeats(), theater.getArrangements(), theater.getInformation());
     }
 }
 

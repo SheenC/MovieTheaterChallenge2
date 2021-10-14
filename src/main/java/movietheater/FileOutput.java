@@ -12,11 +12,13 @@ public class FileOutput {
     LinkedHashMap<String, ArrayList<String>> arrangements;
     StringBuilder output;
     String path = "/Users/cxy/Desktop/Intern/Theater/MovieTheaterChallenge2/outputTheater";
+    String information;
 
-    public FileOutput(int[][] seats, LinkedHashMap<String, ArrayList<String>> arrangements) {
+    public FileOutput(int[][] seats, LinkedHashMap<String, ArrayList<String>> arrangements, String informtion) {
         this.seats = seats;
         this.arrangements = arrangements;
         this.output = new StringBuilder();
+        this.information = informtion;
         printFile();
     }
 
@@ -36,8 +38,9 @@ public class FileOutput {
                 output.append(seat + ",");
             }
             output.delete(output.length()-1, output.length());
-            output.append("\n");
+            output.append("\n\n");
         }
+        output.append(information + "\n");
         writeFile();
     }
 
