@@ -1,5 +1,12 @@
 <h1>Theater Seats Challenge</h1>
 
+<h3>Run the Program</h3>
+<p>
+Run the "main" function in "Main" class.
+The input file "input.txt" is put in the project file, 
+the output file "outputTheater.txt" will also appear in the project file when you run the main function.
+</p>
+
 <h3>Customer Satisfaction Consideration</h3>
 <p>
 In order to make the seat reservation process fair
